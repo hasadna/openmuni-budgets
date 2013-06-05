@@ -100,7 +100,9 @@ And continuing, we'll install all the project requirements into our virtualenv, 
     pip install -r requirements.txt
 
     volo add
-
+    
+Press enter to accept default values of volo::
+    
     python manage.py devstrap -m -t
 
     python manage.py runserver
