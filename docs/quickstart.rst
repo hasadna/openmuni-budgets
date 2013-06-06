@@ -101,6 +101,10 @@ And continuing, we'll install all the project requirements into our virtualenv, 
 
     volo add -noprompt
 
+.. note:: Pip install might need to be ran a few times. Because mirros might be fault, or your connection might be problematic. If that happends you can try using "pip install --use-mirrors -r requirements.txt"
+    
+Press enter to accept default values of volo::
+    
     python manage.py devstrap -m -t
 
     python manage.py runserver
