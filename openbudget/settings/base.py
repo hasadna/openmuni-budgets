@@ -1,6 +1,5 @@
 import os
 
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -256,3 +255,7 @@ ADMINS = (
 
 # OPEN BUDGET CUSTOM CONF
 TEMP_FILES_DIR = os.path.abspath(os.path.join(os.path.dirname(PROJECT_ROOT), 'tmp'))
+
+# OPEN BUDGET GDADA
+OPENBUDGET_GDATA_USER = 'info@hasadna.org.il'  
+OPENBUDGET_GDATA_PASSWORD = 'hasadnahasadna'
