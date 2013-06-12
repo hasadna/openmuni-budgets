@@ -1,5 +1,3 @@
-import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'openbudget.settings.base'
 import sys
 sys.path.append('../../../')
 import gdata.docs
@@ -28,6 +26,5 @@ def importSheet(key='0AoJzAmQXH28mdDZNakxVUHpZRnNKd0hzT2ZBQmNpMlE',workSheetNum 
     entry = gd_client.GetListFeed(key, worksheet_id).entry
     metaData['muniName'] = feed.title.text.split()[metadataMuniNameIndex].lower()
     metaData['typeName'] = feed.entry[workSheetNum].title.text.split()[metadataTypeIndex].lower()
-    # we take the year before the one mentioned in the worksheet name, since the budget is for the year before
-    metaData['year'] = str(int(feed.entry[workSheetNum].title.text.split()[metadataYearIndex])-1) 
+    metaData['year'] = str(int(feed.entry[workSheetNum].title.text.split()[metadataYearIndex])) 
     return entry,metaData

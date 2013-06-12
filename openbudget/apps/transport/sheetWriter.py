@@ -1,6 +1,8 @@
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'openbudget.settings.base'
 import sys
+sys.path.append('../../../')
+import openbudget.settings.base as settings
 reload(sys)
 sys.setdefaultencoding("utf-8")
 import incoming.importers
@@ -10,8 +12,7 @@ import tablib
 #   and writes it to a csv file in openbudget.fixures.israel
 def writeToCsv((entry,metaData)):
     fileName = createFilenameFromMetadata(metaData)
-    
-    f=open('../../fixtures/israel/'+fileName,'w')
+    f=open(settings.FIXTURE_DIRS[0] + '/israel/' + fileName,'w')
     
     headers=[]
     titleRow = entry[0]
