@@ -1,12 +1,11 @@
-import sys
-sys.path.append('../../../')
+import gdata
 import gdata.docs
 import gdata.docs.service
 import gdata.spreadsheet.service
 import openbudget.settings.base as settings
 
 metadataTypeIndex = 1
-metadataYearIndex = 2
+metadataYearIndex = 1
 metadataMuniNameIndex = 0
 
 #  This function recieves a google spreadsheet key and a workSheet index, 
@@ -22,9 +21,9 @@ def importSheet(key='0AoJzAmQXH28mdDZNakxVUHpZRnNKd0hzT2ZBQmNpMlE',workSheetNum 
     
     feed = gd_client.GetWorksheetsFeed(key = key)
     worksheet_id = feed.entry[workSheetNum].id.text.rsplit('/',1)[1]
-   
+    
     entry = gd_client.GetListFeed(key, worksheet_id).entry
     metaData['muniName'] = feed.title.text.split()[metadataMuniNameIndex].lower()
-    metaData['typeName'] = feed.entry[workSheetNum].title.text.split()[metadataTypeIndex].lower()
+    metaData['typeName'] = feed.title.text.split()[metadataTypeIndex].lower()
     metaData['year'] = str(int(feed.entry[workSheetNum].title.text.split()[metadataYearIndex])) 
     return entry,metaData
