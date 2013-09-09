@@ -29,7 +29,7 @@ You can contribute to the project in a number of ways:
 
 **Find some issues**: https://github.com/hasadna/omuni-budget/issues
 
-**Read the docs**: http://open-budget.readthedocs.org/
+**Read the docs**: http://open-budgets.readthedocs.org/
 
 **Try the demo**: http://open-budget.prjts.com/
 
