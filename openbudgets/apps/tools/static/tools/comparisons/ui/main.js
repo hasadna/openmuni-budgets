@@ -3,13 +3,14 @@ define([
     'comparisons',
     'ui/legend',
     'ui/site-menu',
+    'ui/welcome',
     'ui/entities',
     'ui/nodes',
     'ui/nodes-list',
     'ui/nodes-footer',
     'ui/chart-container',
-    'ui/chart'
-], function (uijet, comparisons, legend, site_menu, entities, nodes, nodes_list, nodes_footer, chart_container, chart) {
+    'ui/chart'  
+], function (uijet, comparisons, legend, site_menu, welcome, entities, nodes, nodes_list, nodes_footer, chart_container, chart) {
 
     uijet.declare([{
         type    : 'Pane',
@@ -23,6 +24,7 @@ define([
     }])
         .declare(legend)
         .declare(site_menu)
+        //.declare(welcome)
         .declare(entities)
         .declare(nodes)
         .declare(nodes_footer)
