@@ -97,6 +97,22 @@ define([
                         series[period].actual = addFloats(series[period].actual, +item.actual); 
                     }
                 });
+                periods = periods.sort();
+                var newPeriods = [];
+                var previousPeriod = periods[0] - 1;
+                periods.forEach(function (item) {
+	                for (var i = previousPeriod + 1; i < item; i++) {
+		                newPeriods.push(j);
+		                series[i] = {
+                            budget  : 0,
+                            actual  : 0,
+                            factor  : 1
+                        };
+	                }
+	                previousPeriod = item;
+                });
+                periods = periods.concat(newPeriods);
+
                 return {
                     periods : periods.sort(),
                     series  : series
