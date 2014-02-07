@@ -32,7 +32,7 @@ LOCAL = {
 
     # db server
     'db_name': 'openbudgets',
-    'db_user': 'oleg',
+    'db_user': 'robot',
     'db_dump_file': settings.OPENBUDGETS_TEMP_DIR + '/db_dump.sql',
 
     # email server

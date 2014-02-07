@@ -167,11 +167,11 @@ SOCIAL_AUTH_PIPELINE = (
  )
 
 try:
-    from .social_config import *
-    FACEBOOK_APP_ID=social_config_vars.get('FACEBOOK_APP_ID') or None
-    FACEBOOK_API_SECRET=social_config_vars.get('FACEBOOK_API_SECRET') or None
-    TWITTER_CONSUMER_KEY=social_config_vars.get('TWITTER_CONSUMER_KEY') or None
-    TWITTER_CONSUMER_SECRET=social_config_vars.get('GOOGLE_CONSUMER_SECRET') or None
+    from . import social_config
+    FACEBOOK_APP_ID=social_config.social_config_vars.get('FACEBOOK_APP_ID') or None
+    FACEBOOK_API_SECRET=social_config.social_config_vars.get('FACEBOOK_API_SECRET') or None
+    TWITTER_CONSUMER_KEY=social_config.social_config_vars.get('TWITTER_CONSUMER_KEY') or None
+    TWITTER_CONSUMER_SECRET=social_config.social_config_vars.get('GOOGLE_CONSUMER_SECRET') or None
     FACEBOOK_EXTENDED_PERMISSIONS = ['email']
     SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
     SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
