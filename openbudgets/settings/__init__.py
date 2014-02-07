@@ -1,6 +1,5 @@
 import os
 
-
 DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
@@ -103,6 +102,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
+    'openbudgets.apps.accounts.middleware.OpenBudgetsSocialAuthExceptionMiddleware',
 )
 
 INSTALLED_APPS = (
@@ -143,7 +143,44 @@ INSTALLED_APPS = (
     'openbudgets.apps.transport',
     'openbudgets.apps.api',
     'openbudgets.commons',
+    'social_auth',
 )
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_PIPELINE = (
+     'social_auth.backends.pipeline.social.social_auth_user',
+     'social_auth.backends.pipeline.associate.associate_by_email', # only difference from default
+     'social_auth.backends.pipeline.user.get_username',
+     # 'social_auth.backends.pipeline.user.create_user',
+     'openbudgets.apps.accounts.social_pipeline.create_user',#custom pipeline
+     'social_auth.backends.pipeline.social.associate_user',
+     'social_auth.backends.pipeline.social.load_extra_data',
+     'social_auth.backends.pipeline.user.update_user_details'
+
+ )
+
+try:
+    from .social_config import *
+    FACEBOOK_APP_ID=social_config_vars.get('FACEBOOK_APP_ID') or None
+    FACEBOOK_API_SECRET=social_config_vars.get('FACEBOOK_API_SECRET') or None
+    TWITTER_CONSUMER_KEY=social_config_vars.get('TWITTER_CONSUMER_KEY') or None
+    TWITTER_CONSUMER_SECRET=social_config_vars.get('GOOGLE_CONSUMER_SECRET') or None
+    FACEBOOK_EXTENDED_PERMISSIONS = ['email']
+    SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
+    SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
+    SOCIAL_AUTH_REDIRECT_IS_HTTPS = False #?
+    SOCIAL_AUTH_CREATE_USERS= True
+    SOCIAL_AUTH_FORCE_RANDOM_USERNAME=False
+    SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email', 'first_name', 'last_name']
+except ImportError:
+    pass
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
@@ -157,6 +194,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'openbudgets.commons.context_processors.site',
     'openbudgets.commons.context_processors.forms',
     'openbudgets.commons.context_processors.openbudgets',
+    'social_auth.context_processors.social_auth_by_name_backends',
 )
 
 LOGGING = {

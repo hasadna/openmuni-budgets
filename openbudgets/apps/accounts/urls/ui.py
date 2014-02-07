@@ -8,7 +8,6 @@ from openbudgets.apps.accounts.views.ui import AccountDetailView, \
     AccountUpdateView, AccountRegistrationView, account_login, \
     account_password_change, account_password_reset
 
-
 urlpatterns = patterns('',
 
     url(r'^activate/complete/$',
