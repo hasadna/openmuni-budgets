@@ -8,7 +8,6 @@ from social_exceptions import NonIdenticalEmailAddress
 
 def associate_by_email(details, user=None, *args, **kwargs):
     """Return user entry with same email address as one returned on details."""
-    import ipdb;ipdb.set_trace()
     email = details.get('email', None)
 
     if user and user.email == email:
