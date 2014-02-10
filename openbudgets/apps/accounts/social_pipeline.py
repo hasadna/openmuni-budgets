@@ -14,7 +14,7 @@ def associate_by_email(details, user=None, *args, **kwargs):
         return None
     elif not email or (user and user.email != email):
         msg = ugettext('Social email address and account email ' +
-                       'addredd must be idnetical')
+                       'address must be idnetical')
         raise NonIdenticalEmailAddress(msg)
     if email:
         # Try to associate accounts registered with the same email address,
