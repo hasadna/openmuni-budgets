@@ -156,7 +156,7 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_PIPELINE = (
      'social_auth.backends.pipeline.social.social_auth_user',
-     'social_auth.backends.pipeline.associate.associate_by_email', # only difference from default
+     'openbudgets.apps.accounts.social_pipeline.associate_by_email', # only difference from default
      'social_auth.backends.pipeline.user.get_username',
      # 'social_auth.backends.pipeline.user.create_user',
      'openbudgets.apps.accounts.social_pipeline.create_user',#custom pipeline
