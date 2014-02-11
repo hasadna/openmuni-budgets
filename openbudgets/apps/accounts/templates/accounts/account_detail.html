@@ -34,13 +34,13 @@
   {% for provider,account in social_auth.items %}
 	  {% if account and provider %}
 	  		<div class="account">
-		  		<form method="POST" action="{% url "socialauth_disconnect_individual" provider account.id %}" 
+		  		<form method="POST" action="{% url "socialauth_disconnect_individual" provider account.id %}"
 		  			  class="social-revoke-form">
 		  		   {% csrf_token %}
 				   <input type="submit" class="social-revoke-control" value="-"> {{ provider }}
 				 </form>
 			</div>
-	   {% endif %} 
+	   {% endif %}
    {% endfor %}
  </div>
 
@@ -54,7 +54,7 @@
 
 {% block content %}
 <div id="filter">
-    <select>socialauth_disconnect
+    <select>
         <option>{% trans 'Show everything' %}</option>
         <option>{% trans 'Item comments' %}</option>
         <option>{% trans 'Vizualization states' %}</option>
