@@ -42,8 +42,8 @@ def create_user(backend, details, response, uid, username, user=None, *args,
     if email and UserSocialAuth.email_max_length() < len(email):
         original_email = email
         email = ''
-    first_name = details.get('first_name') or 'John'
-    last_name = details.get('last_name') or 'Doe'
+    first_name = details.get('first_name', 'John')
+    last_name = details.get('last_name', 'Doe')
     password = Account.objects.make_random_password()
 
     return {

@@ -206,7 +206,6 @@ def account_login(request, template_name='registration/login.html',
         redirect_field_name: redirect_to,
         'site': current_site,
         'site_name': current_site.name,
-        'messages': get_messages(request),
     }
 
     if extra_context is not None:
