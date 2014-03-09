@@ -164,6 +164,10 @@ SOCIAL_AUTH_PIPELINE = (
      'social_auth.backends.pipeline.user.update_user_details',
  )
 
+'''
+    Import social tokens, this stuff is private, and varies from dvelopment, to
+    staging and prod envs and basically only required for social authentication
+'''
 try:
     from . import social_config
     FACEBOOK_APP_ID = social_config.social_config_vars.get('FACEBOOK_APP_ID', None)
