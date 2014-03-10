@@ -83,13 +83,26 @@ define([
                 },
                 'update:comments'   : function (model) {
                     // bump the number of comments on the item
-                    var $button  = this.$element.find('[data-item=' + model.get('id') + ']');
+                    var $button  = this.$element.find('[data-item=' + model.get('id') + ']'),
+                        $comment_counter,
+                        comment_count;
 
                     // if it's an item from the list and not scope item
                     if ( $button.length ) {
-                        // set the buttons
-                        $button.find('.item_comment_button')
-                            .text(model.get('comment_count'));
+                        // Get comment count
+                        comment_count = model.get('comment_count');
+
+                        // Get comment-counter element
+                        $comment_counter = $button.find('.item_comment_button');
+
+                        // Set current comment count
+                        $comment_counter.text(comment_count);
+
+                        // Display/hide comment indicator appropriately
+                        if (comment_count > 0)
+                            $comment_counter.addClass('has_comments');
+                        else
+                            $comment_counter.removeClass('has_comments');
                     }
                     else {
                         // it's the scope item so notify the sheet_scope_comments widget
