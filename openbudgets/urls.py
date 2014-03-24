@@ -57,5 +57,7 @@ urlpatterns = patterns('',
 
     url(r'^',
         include('openbudgets.apps.pages.urls')),
+     url(r'', 
+        include('social_auth.urls')),
 
 )

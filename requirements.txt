@@ -33,8 +33,12 @@ django-gravatar2
 django-taggit
 django-braces
 django-subdomains
+django-social-auth==0.7.28
 git+https://github.com/dcramer/django-uuidfield.git#egg=uuidfield
 git+https://github.com/mozilla/unicode-slugify
-
 # upstream still doesn't fully support custom user model
 hg+https://bitbucket.org/prjts/django-registration
+# temp, while working
+git+https://github.com/pwalsh/quilt#egg=quilt
+git+https://github.com/pwalsh/dock#egg=dock
+

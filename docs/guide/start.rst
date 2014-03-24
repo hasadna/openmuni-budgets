@@ -8,8 +8,7 @@ Start
 
 .. image:: https://coveralls.io/repos/prjts/openbudgets/badge.png?branch=develop
    :alt: Coverage Status
-   :target: https://coveralls.io/r/prjts/openbudgets?branch=develop
-
+   :target: https://coveralls.io/r/prjts/openbudgets?branch=developboo
 
 Open Budgets is a web app and web API for storing, accessing, visualizing and comparing budgetary data.
 
