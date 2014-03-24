@@ -11,6 +11,7 @@ from openbudgets.apps.accounts.views.ui import AccountDetailView, \
 
 urlpatterns = patterns('',
 
+
     url(r'^activate/complete/$',
        TemplateView.as_view(template_name='registration/activation_complete.html'),
        name='registration_activation_complete'),

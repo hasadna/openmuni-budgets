@@ -27,6 +27,7 @@ from openbudgets.apps.accounts.forms import AccountNameForm, AccountForm, \
     CustomRegistrationForm, CustomAuthenticationForm, CustomPasswordChangeForm,\
     CustomPasswordResetForm
 from openbudgets.commons.mixins.views import UserDataObjectMixin, JSONResponseMixin
+from django.contrib.messages import get_messages
 
 
 class AccountDetailView(LoginRequiredMixin, UserDataObjectMixin, DetailView):
@@ -153,7 +154,6 @@ def account_login(request, template_name='registration/login.html',
                   redirect_field_name=REDIRECT_FIELD_NAME,
                   authentication_form=CustomAuthenticationForm,
                   current_app=None, extra_context=None):
-
     redirect_to = request.REQUEST.get(redirect_field_name, '')
 
     if request.method == "POST":

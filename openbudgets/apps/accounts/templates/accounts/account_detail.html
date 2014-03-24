@@ -30,7 +30,19 @@
     </div>
 </div>
 
-
+<div class="social-accounts">
+  {% for provider,account in social_auth.items %}
+	  {% if account and provider %}
+	  		<div class="account">
+		  		<form method="POST" action="{% url "socialauth_disconnect_individual" provider account.id %}"
+		  			  class="social-revoke-form">
+		  		   {% csrf_token %}
+				   <input type="submit" class="social-revoke-control" value="-"> {{ provider }}
+				 </form>
+			</div>
+	   {% endif %}
+   {% endfor %}
+ </div>
 
 
 
