@@ -31,7 +31,7 @@ You can contribute to the project in a number of ways:
 
 **Write some code**: https://github.com/hasadna/openmuni-budget
 
-**Read the docs**: http://open-budgets.readthedocs.org/
+**Read the docs**: http://openbudgets.readthedocs.org/
 
 **Play with the demo**: http://dev.openmuni.org.il/
 
@@ -47,7 +47,7 @@ Quickstart
 
 If you want to get up and running:
 
-http://open-budgets.readthedocs.org/en/latest/guide/start.html
+http://openbudgets.readthedocs.org/en/latest/guide/quickstart.html
 
 License
 -------
